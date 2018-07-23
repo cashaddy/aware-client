@@ -323,7 +323,7 @@ public class Bluetooth extends Aware_Sensor {
         if (bluetoothAdapter != null) {
 
             bluetoothAdapter.cancelDiscovery();
-            if (BLE_SUPPORT) {
+            if (BLE_SUPPORT && bluetoothAdapter.getBluetoothLeScanner() != null) {
                 bluetoothAdapter.getBluetoothLeScanner().stopScan(scanCallback);
             }
 
