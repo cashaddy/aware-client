@@ -532,6 +532,11 @@ public class ESM extends Aware_Sensor {
 
         @Override
         public void onReceive(Context context, Intent intent) {
+
+            Log.d(TAG, "received broadcast");
+            Log.d(TAG, context.getPackageName());
+            Log.d(TAG, intent.getStringExtra(ESM.EXTRA_ESM));
+
             //Are we even supposed to handle ESMs on this package?
             if (!Aware.getSetting(context, Aware_Preferences.STATUS_ESM).equals("true")) return;
 

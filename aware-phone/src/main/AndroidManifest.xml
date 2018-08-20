@@ -8,6 +8,7 @@
         android:icon="@drawable/ic_launcher_settings"
         android:label="Read AWARE&apos;s Context data"
         android:protectionLevel="normal" />
+    
     <permission
         android:name="com.aware.WRITE_CONTEXT_DATA"
         android:description="@string/write_permission"
