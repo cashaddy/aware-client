@@ -541,7 +541,7 @@ public class ESM extends Aware_Sensor {
             if (!Aware.getSetting(context, Aware_Preferences.STATUS_ESM).equals("true")) return;
 
             //only the client or standalone apps handle ESM statuses
-            if (context.getPackageName().equalsIgnoreCase("com.aware.phone") || context.getApplicationContext().getResources().getBoolean(R.bool.standalone)) {
+            if (context.getPackageName().equalsIgnoreCase("de.lmu.ifi.researchime") || context.getPackageName().equalsIgnoreCase("com.aware.phone") || context.getApplicationContext().getResources().getBoolean(R.bool.standalone)) {
 
                 if (context.getPackageName().equalsIgnoreCase("com.aware.phone"))
                     Log.d(ESM.TAG, "AWARE client will handle ESM");
