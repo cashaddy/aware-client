@@ -299,6 +299,7 @@ public class Accelerometer extends Aware_Sensor implements SensorEventListener {
 
                 mSensorManager.registerListener(this, mAccelerometer, Integer.parseInt(Aware.getSetting(getApplicationContext(), Aware_Preferences.FREQUENCY_ACCELEROMETER)), sensorHandler);
                 LAST_SAVE = System.currentTimeMillis();
+                LAST_TS = System.currentTimeMillis();
 
                 if (Aware.DEBUG) Log.d(TAG, "Accelerometer service active: " + FREQUENCY + " ms");
 

@@ -324,6 +324,7 @@ public class Gyroscope extends Aware_Sensor implements SensorEventListener {
 
                 mSensorManager.registerListener(this, mGyroscope, Integer.parseInt(Aware.getSetting(getApplicationContext(), Aware_Preferences.FREQUENCY_GYROSCOPE)), sensorHandler);
                 LAST_SAVE = System.currentTimeMillis();
+                LAST_TS = System.currentTimeMillis();
             }
 
             if (Aware.DEBUG) Log.d(TAG, "Gyroscope service active: " + FREQUENCY + "ms");
