@@ -187,7 +187,9 @@ public class Bluetooth extends Aware_Sensor {
         if (PERMISSIONS_OK) {
             if (intent != null && intent.hasExtra("action") && intent.getStringExtra("action").equalsIgnoreCase(ACTION_AWARE_ENABLE_BT)) {
                 Intent enableBT = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-                getApplicationContext().startActivity(enableBT);
+                enableBT.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                
+                startActivity(enableBT);
                 //startActivity(enableBT);
             }
 
