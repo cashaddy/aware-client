@@ -81,7 +81,13 @@ public class Accelerometer extends Aware_Sensor implements SensorEventListener {
 
     @Override
     public void onSensorChanged(SensorEvent event) {
+
+        Log.d(TAG, "ENFORCE_FREQUENCY: " + ENFORCE_FREQUENCY + ",  LAST_TS " + LAST_TS + ", FREQUENCY " + FREQUENCY);
+
         if (SignificantMotion.isSignificantMotionActive && !SignificantMotion.CURRENT_SIGMOTION_STATE) {
+
+            Log.d(TAG, "Significcant motion detected.");
+
             if (data_values.size() > 0) {
                 final ContentValues[] data_buffer = new ContentValues[data_values.size()];
                 data_values.toArray(data_buffer);
@@ -108,8 +114,10 @@ public class Accelerometer extends Aware_Sensor implements SensorEventListener {
         }
 
         long TS = System.currentTimeMillis();
-        if (ENFORCE_FREQUENCY && TS < LAST_TS + FREQUENCY / 1000)
+        if (ENFORCE_FREQUENCY && TS < LAST_TS + FREQUENCY / 1000) {
+            Log.d(TAG, "Return void");
             return;
+        }
         if (LAST_VALUES != null && THRESHOLD > 0 && Math.abs(event.values[0] - LAST_VALUES[0]) < THRESHOLD
                 && Math.abs(event.values[1] - LAST_VALUES[1]) < THRESHOLD
                 && Math.abs(event.values[2] - LAST_VALUES[2]) < THRESHOLD) {
